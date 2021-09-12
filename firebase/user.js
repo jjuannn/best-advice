@@ -8,6 +8,19 @@ export const registerWithEmailAndPassword = (email, password) => {
       return formatUsername(res.user);
     })
     .catch((err) => {
+      console.log(err);
+      throw new Error("auth failed");
+    });
+};
+
+export const loginWithEmailAndPassword = (email, password) => {
+  return auth
+    .signInWithEmailAndPassword(email, password)
+    .then((res) => {
+      return formatUsername(res.user);
+    })
+    .catch((err) => {
+      console.log(err);
       throw new Error("auth failed");
     });
 };
