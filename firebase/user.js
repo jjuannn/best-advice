@@ -1,5 +1,5 @@
 import { auth } from "./_index";
-import { formatUsername } from "/utils/utils";
+import { formatUsername } from "/utils/user";
 
 export const registerWithEmailAndPassword = (email, password) => {
   return auth
