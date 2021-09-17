@@ -6,6 +6,11 @@ export default function useForm() {
     email: "",
     password: "",
   });
+  const [postValues, setPostValues] = useState({
+    title: "",
+    text: "",
+    topic: "",
+  });
 
   const setLoginEmail = (e) => {
     setLoginValues({ ...loginValues, email: e.target.value });
@@ -23,12 +28,28 @@ export default function useForm() {
     setRegisterValues({ ...registerValues, password: e.target.value });
   };
 
+  const setPostTitle = (e) => {
+    setPostValues({ ...postValues, title: e.target.value });
+  };
+
+  const setPostText = (e) => {
+    setPostValues({ ...postValues, text: e.target.value });
+  };
+
+  const setPostTopic = (e) => {
+    setPostValues({ ...postValues, topic: e.target.value });
+  };
+
   return {
     loginValues,
-    registerValues,
     setLoginEmail,
     setLoginPassword,
+    registerValues,
     setRegisterEmail,
     setRegisterPassword,
+    postValues,
+    setPostTitle,
+    setPostText,
+    setPostTopic,
   };
 }
