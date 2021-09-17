@@ -1,6 +1,17 @@
 import { Box, Text, Heading, Badge } from "@chakra-ui/react";
+import useAuth from "hooks/useAuth";
 
-export default function PostItem() {
+export default function PostItem({
+  author,
+  id,
+  text,
+  title,
+  topic,
+  createdAt,
+  author_id,
+}) {
+  const { userValues } = useAuth();
+
   return (
     <>
       <Box
@@ -12,19 +23,19 @@ export default function PostItem() {
       >
         <Box>
           <Text color="white">
-            #1 made by Juan Avero - 5 days ago {"  "}
-            <Badge colorScheme="purple">#relationships</Badge>
+            #1 made by {author} - {createdAt} {"  "}
           </Text>
         </Box>
         <Box>
-          <Heading color="white">Lorem ipsum dolor sit amet</Heading>
+          <Heading color="white">{title}</Heading>
           <Text isTruncated marginTop="10px" color="white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel
-            blandit ex. Duis iaculis tristique elit, et tempus ante semper ac.
-            Nam porta, elit a varius auctor, mi nunc consectetur est, in
-            fringilla ante ex lobortis ipsum. Morbi egestas ligula nec leo
+            {text}
           </Text>
+          <Badge colorScheme="purple"># {topic}</Badge>
         </Box>
+        {author_id === userValues?.uid
+          ? "TIENEN LA MISMA ID"
+          : "NO TIENEN LA MISMA ID "}
       </Box>
     </>
   );
