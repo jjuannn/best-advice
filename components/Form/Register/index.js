@@ -13,7 +13,7 @@ import { FiLogIn } from "react-icons/fi";
 
 export default function RegisterForm() {
   const { registerValues, setRegisterEmail, setRegisterPassword } = useForm();
-
+  const { email, password } = registerValues;
   const { register } = useAuth();
 
   const handleRegister = (e) => {
@@ -41,7 +41,7 @@ export default function RegisterForm() {
           maxLength="30"
           border="1px"
           borderColor="gray"
-          value={registerValues.email}
+          value={email}
           onChange={setRegisterEmail}
           type="email"
         />
@@ -53,7 +53,7 @@ export default function RegisterForm() {
           maxLength="30"
           border="1px"
           borderColor="gray"
-          value={registerValues.password}
+          value={password}
           onChange={setRegisterPassword}
           type="password"
         />

@@ -13,7 +13,7 @@ import { FiLogIn } from "react-icons/fi";
 
 export default function LoginForm() {
   const { loginValues, setLoginEmail, setLoginPassword } = useForm();
-
+  const { email, password } = loginValues;
   const { login } = useAuth();
 
   const handleLogin = (e) => {
@@ -41,7 +41,7 @@ export default function LoginForm() {
           maxLength="30"
           border="1px"
           borderColor="gray"
-          value={loginValues.email}
+          value={email}
           onChange={setLoginEmail}
           type="email"
         />
@@ -53,7 +53,7 @@ export default function LoginForm() {
           maxLength="30"
           border="1px"
           borderColor="gray"
-          value={loginValues.password}
+          value={password}
           onChange={setLoginPassword}
           type="password"
         />
