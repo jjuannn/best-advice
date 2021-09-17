@@ -7,8 +7,9 @@ export default function Header() {
 
   return (
     <Flex
-      flexDirection="row"
+      flexDirection={{ sm: "column", md: "row" }}
       justifyContent="space-between"
+      alignItems="center"
       padding="3"
       bg="purple.200"
     >
@@ -24,7 +25,7 @@ export default function Header() {
           </Button>
         </Link>
       </Box>
-      <Box>
+      <Box marginTop={{ sm: "10px", md: "0px" }}>
         {userValues ? (
           <>
             <Button
@@ -32,7 +33,6 @@ export default function Header() {
               color="white"
               marginRight="10px"
               padding="7px 10px"
-              borderRadius="12px"
             >
               {userValues.user}
             </Button>
@@ -40,7 +40,6 @@ export default function Header() {
               onClick={logout}
               marginRight="10px"
               padding="7px 10px"
-              borderRadius="12px"
               _hover={{ cursor: "pointer" }}
             >
               Logout
@@ -51,7 +50,6 @@ export default function Header() {
             <Button
               marginRight="10px"
               padding="7px 10px"
-              borderRadius="12px"
               _hover={{ cursor: "pointer" }}
             >
               Auth
@@ -59,11 +57,7 @@ export default function Header() {
           </Link>
         )}
         <Link href="/list">
-          <Button
-            padding="7px 10px"
-            borderRadius="12px"
-            _hover={{ cursor: "pointer" }}
-          >
+          <Button padding="7px 10px" _hover={{ cursor: "pointer" }}>
             List
           </Button>
         </Link>
