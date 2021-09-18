@@ -10,7 +10,7 @@ export default function AddPost() {
   const { push } = useRouter();
 
   useEffect(() => {
-    if (!userValues) {
+    if (!userValues.user) {
       push("/");
     }
   }, []);
