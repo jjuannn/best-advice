@@ -9,7 +9,9 @@ export const registerWithEmailAndPassword = (email, password) => {
     })
     .catch((err) => {
       console.log(err);
-      throw new Error("auth failed");
+      throw new Error(
+        "Error while register. The email is probably already being used by another account"
+      );
     });
 };
 
@@ -21,7 +23,9 @@ export const loginWithEmailAndPassword = (email, password) => {
     })
     .catch((err) => {
       console.log(err);
-      throw new Error("auth failed");
+      throw new Error(
+        "Error while authenticate. Check the credentials or create a new account :)"
+      );
     });
 };
 
