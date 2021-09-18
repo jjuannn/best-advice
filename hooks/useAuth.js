@@ -16,7 +16,9 @@ export default function useAuth() {
       const data = await registerWithEmailAndPassword(email, password);
       userDispatch({ type: "USER_AUTH", payload: data });
       router.push("/");
-    } catch (err) {}
+    } catch (err) {
+      userDispatch({ type: "USER_AUTH_FAILURE", payload: err });
+    }
   };
 
   const login = async ({ email, password }) => {
@@ -24,7 +26,9 @@ export default function useAuth() {
       const data = await loginWithEmailAndPassword(email, password);
       userDispatch({ type: "USER_AUTH", payload: data });
       router.push("/");
-    } catch (err) {}
+    } catch (err) {
+      userDispatch({ type: "USER_AUTH_FAILURE", payload: err });
+    }
   };
 
   const logout = async () => {

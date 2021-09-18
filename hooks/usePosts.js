@@ -1,13 +1,16 @@
 import { useReducer } from "react";
-import { getPostsCollection, addPost as addPostService } from "/firebase/posts";
+import {
+  deletePost as deletePostService,
+  addPost as addPostService,
+} from "/firebase/posts";
 
 const INITIAL_VALUES = {
-  posts: {
+  addPost: {
     loading: false,
-    data: null,
+    success: false,
     error: null,
   },
-  addPost: {
+  deletePost: {
     loading: false,
     success: false,
     error: null,
@@ -16,33 +19,6 @@ const INITIAL_VALUES = {
 
 function postsReducer(state = INITIAL_VALUES, { type, payload }) {
   switch (type) {
-    case "FETCH_LOADING":
-      return {
-        ...state,
-        posts: {
-          loading: true,
-          data: null,
-          error: null,
-        },
-      };
-    case "FETCH_SUCCESS":
-      return {
-        ...state,
-        posts: {
-          loading: false,
-          data: payload,
-          error: null,
-        },
-      };
-    case "FETCH_FAILURE":
-      return {
-        ...state,
-        posts: {
-          loading: false,
-          data: null,
-          error: payload,
-        },
-      };
     case "ADD_LOADING":
       return {
         ...state,
@@ -70,6 +46,34 @@ function postsReducer(state = INITIAL_VALUES, { type, payload }) {
           error: payload,
         },
       };
+    case "DELETE_LOADING":
+      return {
+        ...state,
+        deletePost: {
+          loading: true,
+          success: false,
+          error: null,
+        },
+      };
+    case "DELETE_SUCCESS":
+      console.log("holas");
+      return {
+        ...state,
+        deletePost: {
+          loading: false,
+          success: true,
+          error: null,
+        },
+      };
+    case "DELETE_FAILURE":
+      return {
+        ...state,
+        deletePost: {
+          loading: false,
+          success: false,
+          error: payload,
+        },
+      };
     default:
       return state;
   }
@@ -77,7 +81,7 @@ function postsReducer(state = INITIAL_VALUES, { type, payload }) {
 
 export default function usePosts() {
   const [state, dispatch] = useReducer(postsReducer, INITIAL_VALUES);
-  const { posts, addPost } = state;
+  const { deletePost, addPost } = state;
 
   const addNewPost = async (data) => {
     dispatch({ type: "ADD_LOADING" });
@@ -89,11 +93,24 @@ export default function usePosts() {
     }
   };
 
+  const fDeletePost = async (id) => {
+    dispatch({ type: "DELETE_LOADING" });
+    try {
+      await deletePostService(id);
+      dispatch({ type: "DELETE_SUCCESS" });
+    } catch (err) {
+      dispatch({ type: "DELETE_FAILURE", payload: err });
+    }
+  };
+
   return {
     addNewPostLoading: addPost.loading,
     addNewPostSuccess: addPost.success,
     addNewPostError: addPost.error,
-    getPosts,
+    deletePostLoading: deletePost.loading,
+    deletePostSuccess: deletePost.success,
+    deletePostFailure: deletePost.error,
     addNewPost,
+    fDeletePost,
   };
 }
