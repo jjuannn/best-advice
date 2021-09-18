@@ -26,7 +26,7 @@ export default function Header() {
         </Link>
       </Box>
       <Box marginTop={{ sm: "10px", md: "0px" }}>
-        {userValues ? (
+        {userValues.user ? (
           <>
             <Button
               colorScheme="purple"
