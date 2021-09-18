@@ -10,11 +10,12 @@ import {
 import useForm from "hooks/useForm";
 import useAuth from "hooks/useAuth";
 import { FiLogIn } from "react-icons/fi";
+import ErrorMessage from "components/Error";
 
 export default function LoginForm() {
   const { loginValues, setLoginEmail, setLoginPassword } = useForm();
   const { email, password } = loginValues;
-  const { login } = useAuth();
+  const { login, userValues } = useAuth();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -61,6 +62,9 @@ export default function LoginForm() {
           Please remember your credentials! Be careful
         </FormHelperText>
       </FormControl>
+      {userValues?.error && (
+        <ErrorMessage>{userValues.error.message}</ErrorMessage>
+      )}
       <Button type="submit" marginTop="10px" colorScheme="purple">
         Login <FiLogIn style={{ marginLeft: "10px" }} />
       </Button>

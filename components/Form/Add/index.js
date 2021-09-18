@@ -5,6 +5,7 @@ import {
   FormLabel,
   Input,
   Button,
+  Textarea,
 } from "@chakra-ui/react";
 import ErrorMessage from "components/Error";
 import useAuth from "hooks/useAuth";
@@ -55,10 +56,12 @@ export default function AddPostForm({ userValues }) {
       </FormControl>
       <FormControl as="fieldset" marginBottom="12px" isRequired>
         <FormLabel>Text</FormLabel>
-        <Input
+        <Textarea
+          minHeight="300px"
+          maxHeight="305px"
           value={text}
           onChange={setPostText}
-          maxLength="300"
+          maxLength="1000"
           border="1px"
           borderColor="gray"
           type="text"

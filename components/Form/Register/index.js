@@ -10,11 +10,12 @@ import {
 import useForm from "hooks/useForm";
 import useAuth from "hooks/useAuth";
 import { FiLogIn } from "react-icons/fi";
+import ErrorMessage from "components/Error";
 
 export default function RegisterForm() {
   const { registerValues, setRegisterEmail, setRegisterPassword } = useForm();
   const { email, password } = registerValues;
-  const { register } = useAuth();
+  const { register, userValues } = useAuth();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -61,6 +62,9 @@ export default function RegisterForm() {
           The password should have at least 8 characters
         </FormHelperText>
       </FormControl>
+      {userValues?.error && (
+        <ErrorMessage>{userValues.error.message}</ErrorMessage>
+      )}
       <Button type="submit" marginTop="10px" colorScheme="purple">
         Register <FiLogIn style={{ marginLeft: "10px" }} />
       </Button>
