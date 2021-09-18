@@ -8,6 +8,9 @@ export function getPostsCollection() {
     .get()
     .then(({ docs }) => {
       return docs.map((doc) => mapDocFromFirebase(doc));
+    })
+    .catch((err) => {
+      throw new Error("Failed while fetching posts");
     });
 }
 
@@ -17,7 +20,10 @@ export function getPostDetail(id) {
     .doc(id)
     .get()
     .then((res) => {
-      return res.json();
+      return mapDocFromFirebase(res);
+    })
+    .catch((err) => {
+      throw new Error("Failed while fetching post detail");
     });
 }
 
@@ -34,5 +40,15 @@ export function addPost({ postValues, uid, user }) {
     })
     .catch((err) => {
       throw new Error("Failed while creating a post ");
+    });
+}
+
+export function deletePost(id) {
+  return firestore
+    .collection("posts")
+    .doc(id)
+    .delete()
+    .catch((err) => {
+      throw new Error("Failed white deleting a post");
     });
 }
