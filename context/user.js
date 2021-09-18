@@ -16,9 +16,11 @@ export function userReducer(state = null, { type, payload }) {
   switch (type) {
     case "USER_AUTH":
       const { email, uid } = payload;
-      return { ...state, user: email, uid };
+      return { ...state, user: email, uid, error: null };
     case "USER_LOGOUT":
       return null;
+    case "USER_AUTH_FAILURE":
+      return { ...state, error: payload };
     default:
       return state;
   }
