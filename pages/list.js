@@ -14,8 +14,8 @@ export default function List({ posts, error }) {
         <Heading color="purple.500" fontSize="50px" marginBottom="30px">
           Explore
         </Heading>
-        <Link href={userValues.user ? "/add" : ""}>
-          <Button disabled={!userValues.user} colorScheme="purple">
+        <Link href={userValues?.user ? "/add" : ""}>
+          <Button disabled={!userValues?.user} colorScheme="purple">
             Create
           </Button>
         </Link>
