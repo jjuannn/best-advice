@@ -32,7 +32,6 @@ export default function PostItem({
   return (
     <>
       <Box
-        _hover={{ cursor: "pointer" }}
         bg="purple.400"
         width="100%"
         marginBottom="15px"
