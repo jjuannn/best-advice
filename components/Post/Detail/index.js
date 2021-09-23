@@ -22,10 +22,10 @@ export default function PostDetail({ author, createdAt, text, title, topic }) {
       <Box>
         <Text>{text}</Text>
       </Box>
-      <Box bottom="100px" position="absolute">
+      <Box marginTop="30px">
         <Badge colorScheme="purple"># {topic}</Badge>
       </Box>
-      <Box bottom="30px" position="absolute">
+      <Box marginTop="30px">
         <Link href="/list">
           <Button colorScheme="whiteAlpha">Back to list</Button>
         </Link>
