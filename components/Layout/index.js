@@ -4,7 +4,7 @@ import Header from "components/Header";
 
 export default function AppLayout({ children }) {
   return (
-    <Box as="section" display="flex" flexDirection="column" height="100vh">
+    <Box as="section" display="flex" flexDirection="column" minHeight="100vh">
       <Header />
       <Flex
         direction="column"
