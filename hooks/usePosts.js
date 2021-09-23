@@ -56,7 +56,6 @@ function postsReducer(state = INITIAL_VALUES, { type, payload }) {
         },
       };
     case "DELETE_SUCCESS":
-      console.log("holas");
       return {
         ...state,
         deletePost: {
