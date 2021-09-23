@@ -11,6 +11,7 @@ export default function useForm() {
     text: "",
     topic: "",
   });
+  const [commentValues, setCommentValues] = useState({ text: "" });
 
   const setLoginEmail = (e) => {
     setLoginValues({ ...loginValues, email: e.target.value });
@@ -40,6 +41,14 @@ export default function useForm() {
     setPostValues({ ...postValues, topic: e.target.value });
   };
 
+  const setCommentText = (e) => {
+    setCommentValues({ ...commentValues, text: e.target.value });
+  };
+
+  const resetCommentValue = () => {
+    setCommentValues({ ...commentValues, text: "" });
+  };
+
   return {
     loginValues,
     setLoginEmail,
@@ -51,5 +60,8 @@ export default function useForm() {
     setPostTitle,
     setPostText,
     setPostTopic,
+    commentValues,
+    setCommentText,
+    resetCommentValue,
   };
 }
