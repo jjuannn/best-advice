@@ -1,4 +1,4 @@
-# BEST ADVICE
+# Best Advice
 
 This repository is application where you can make posts and recieve comments
 
