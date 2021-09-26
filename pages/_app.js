@@ -5,6 +5,7 @@ import Head from "/components/Head/index";
 import UserContextProvider from "context/user";
 
 function MyApp({ Component, pageProps }) {
+  console.log("testing if deploy works correctly");
   return (
     <UserContextProvider>
       <ChakraProvider theme={customTheme}>
