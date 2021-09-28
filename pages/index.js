@@ -46,7 +46,7 @@ export default function Home() {
             </Button>
           </Text>
         </Box>
-        <Image width="250px" src="/svg/chat.svg" />
+        <Image alt="" width="250px" src="/svg/chat.svg" />
       </Flex>
     </PageContainer>
   );

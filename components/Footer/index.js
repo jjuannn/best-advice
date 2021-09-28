@@ -10,7 +10,7 @@ export default function Footer() {
           fontWeight="600"
           href="https://github.com/jjuannn"
           target="_blank"
-          rel="norefferer"
+          rel="noreferrer"
         >
           Juan Avero
         </Link>
