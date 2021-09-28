@@ -4,6 +4,10 @@ export default function Head() {
   return (
     <NextHead>
       <meta chardet="utf-8" />
+      <meta
+        name="description"
+        content="Application where you can make posts and comments"
+      />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <title>Best Advice</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
