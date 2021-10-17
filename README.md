@@ -17,11 +17,9 @@ This application was made with:
 - ⚡️ Chakra UI for the styling.
 - 🌌 Context for the state handling.
 
-## To Do:
+## Deployments:
 
-- [ ] Pagination for posts.
-
-- [ ] ??
+- https://best-advice.vercel.app/
 
 ## Instalation
 
