@@ -27,7 +27,7 @@ const global = {
     padding: 0,
     margin: 0,
     boxSizing: "border-box",
-    fontFamily: ["Montserrat", "sans-serif"],
+    fontFamily: ["Montserrat !important", "sans-serif"],
   },
 };
 
